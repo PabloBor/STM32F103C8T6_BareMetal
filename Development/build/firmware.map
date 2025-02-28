@@ -1,0 +1,152 @@
+
+Discarded input sections
+
+ .data          0x00000000        0x0 build/startup.o
+ .bss           0x00000000        0x0 build/startup.o
+ .text          0x00000000        0x0 build/main.o
+ .data          0x00000000        0x0 build/main.o
+ .bss           0x00000000        0x0 build/main.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x08000000         0x00010000         xr
+RAM              0x20000000         0x00005000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD build/startup.o
+LOAD build/main.o
+START GROUP
+LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1\libgcc.a
+LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib\libc.a
+END GROUP
+
+.vector_table   0x08000000      0x130
+                0x08000000                . = ALIGN (0x4)
+ *(.vector_table)
+ .vector_table  0x08000000      0x130 build/startup.o
+                0x08000000                __vector_table
+
+.text           0x08000130       0xe8
+                0x08000130                . = ALIGN (0x4)
+ *(.text*)
+ .text          0x08000130       0x9c build/startup.o
+                0x08000130                reset_handler
+                0x0800013a                NMI_Handler
+                0x0800013c                HardFault_Handler
+                0x0800013e                MemoryFault_Handler
+                0x08000140                BusFault_Handler
+                0x08000142                UsageFault_Handler
+                0x08000144                SVCall_Handler
+                0x08000146                DebugMonitor_Handler
+                0x08000148                PendSV_Handler
+                0x0800014a                SysTick_Handler
+                0x0800014c                WWDG_IRQHandler
+                0x0800014e                PVD_IRQHandler
+                0x08000150                TAMPER_IRQHandler
+                0x08000152                RTC_IRQHandler
+                0x08000154                FLASH_IRQHandler
+                0x08000156                RCC_IRQHandler
+                0x08000158                EXTI0_IRQHandler
+                0x0800015a                EXTI1_IRQHandler
+                0x0800015c                EXTI2_IRQHandler
+                0x0800015e                EXTI3_IRQHandler
+                0x08000160                EXTI4_IRQHandler
+                0x08000162                DMA1_Channel1_IRQHandler
+                0x08000164                DMA1_Channel2_IRQHandler
+                0x08000166                DMA1_Channel3_IRQHandler
+                0x08000168                DMA1_Channel4_IRQHandler
+                0x0800016a                DMA1_Channel5_IRQHandler
+                0x0800016c                DMA1_Channel6_IRQHandler
+                0x0800016e                DMA1_Channel7_IRQHandler
+                0x08000170                ADC1_2_IRQHandler
+                0x08000172                USB_HP_CAN1_TX_IRQHandler
+                0x08000174                USB_LP_CAN1_RX0_IRQHandler
+                0x08000176                CAN1_RX1_IRQHandler
+                0x08000178                CAN1_SCE_IRQHandler
+                0x0800017a                EXTI9_5_IRQHandler
+                0x0800017c                TIM1_BRK_TIM15_IRQHandler
+                0x0800017e                TIM1_UP_TIM16_IRQHandler
+                0x08000180                TIM1_TRG_COM_TIM17_IRQHandler
+                0x08000182                TIM1_CC_IRQHandler
+                0x08000184                TIM2_IRQHandler
+                0x08000186                TIM3_IRQHandler
+                0x08000188                TIM4_IRQHandler
+                0x0800018a                I2C1_EV_IRQHandler
+                0x0800018c                I2C1_ER_IRQHandler
+                0x0800018e                I2C2_EV_IRQHandler
+                0x08000190                I2C2_ER_IRQHandler
+                0x08000192                SPI1_IRQHandler
+                0x08000194                SPI2_IRQHandler
+                0x08000196                USART1_IRQHandler
+                0x08000198                USART2_IRQHandler
+                0x0800019a                USART3_IRQHandler
+                0x0800019c                EXTI15_10_IRQHandler
+                0x0800019e                RTC_Alarm_IRQHandler
+                0x080001a0                USBWakeUp_IRQHandler
+                0x080001a2                TIM8_BRKHandler
+                0x080001a4                TIM8_UPHandler
+                0x080001a6                TIM8_TRG_COMHandler
+                0x080001a8                TIM8_CCHandler
+                0x080001aa                ADC3Handler
+                0x080001ac                FSMCHandler
+                0x080001ae                SDIOHandler
+                0x080001b0                TIM5Handler
+                0x080001b2                SPI3Handler
+                0x080001b4                UART4Handler
+                0x080001b6                UART5Handler
+                0x080001b8                TIM6Handler
+                0x080001ba                TIM7Handler
+                0x080001bc                DMA2_Channel1Handler
+                0x080001be                DMA2_Channel2Handler
+                0x080001c0                DMA2_Channel3Handler
+                0x080001c2                DMA2_Channel4_5Handler
+                0x080001c4                Default_Handler
+ .text.startup  0x080001cc       0x4c build/main.o
+                0x080001cc                main
+ *(.rodata*)
+
+.glue_7         0x08000218        0x0
+ .glue_7        0x08000218        0x0 linker stubs
+
+.glue_7t        0x08000218        0x0
+ .glue_7t       0x08000218        0x0 linker stubs
+
+.vfp11_veneer   0x08000218        0x0
+ .vfp11_veneer  0x08000218        0x0 linker stubs
+
+.v4_bx          0x08000218        0x0
+ .v4_bx         0x08000218        0x0 linker stubs
+
+.iplt           0x08000218        0x0
+ .iplt          0x08000218        0x0 build/startup.o
+
+.rel.dyn        0x08000218        0x0
+ .rel.iplt      0x08000218        0x0 build/startup.o
+
+.data           0x20000000        0x0 load address 0x08000218
+                0x20000000                . = ALIGN (0x4)
+ *(.data*)
+
+.igot.plt       0x20000000        0x0 load address 0x08000218
+ .igot.plt      0x20000000        0x0 build/startup.o
+
+.bss            0x20000000        0x0 load address 0x08000218
+                0x20000000                . = ALIGN (0x4)
+ *(.bss*)
+                0x20005000                _stack_top = (ORIGIN (RAM) + LENGTH (RAM))
+OUTPUT(build/firmware.elf elf32-littlearm)
+LOAD linker stubs
+
+.ARM.attributes
+                0x00000000       0x29
+ .ARM.attributes
+                0x00000000       0x1b build/startup.o
+ .ARM.attributes
+                0x0000001b       0x2d build/main.o
+
+.comment        0x00000000       0x49
+ .comment       0x00000000       0x49 build/main.o
+                                 0x4a (size before relaxing)
