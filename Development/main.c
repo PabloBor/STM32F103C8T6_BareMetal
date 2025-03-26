@@ -11,6 +11,6 @@ int main(void) {
 
     while (1) {
         GPIOC_ODR ^= (1 << 13); // Switch LED on PC13
-        for (volatile int i = 1000000; i > 0; i--); // Delay
+        for (volatile int i = 100000; i > 0; i--); // Delay
     }
 }

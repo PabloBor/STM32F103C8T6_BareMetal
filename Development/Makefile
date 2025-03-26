@@ -19,7 +19,7 @@ BIN=$(BUILD_DIR)/firmware.bin
 all: $(BUILD_DIR) $(ELF) $(BIN)
 
 $(BUILD_DIR):
-	mkdir -p $(BUILD_DIR)
+	mkdir $(BUILD_DIR)
 
 $(BUILD_DIR)/startup.o: $(STARTUP_DIR)/startup.s | $(BUILD_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -37,5 +37,5 @@ flash: $(BIN)
 	openocd -f interface/stlink.cfg -f target/stm32f1x.cfg -c "program $(BIN) 0x08000000 verify reset exit"
 
 clean:
-	rm -rf $(BUILD_DIR)
+	del /q $(BUILD_DIR)\*.*
 	
